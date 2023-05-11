@@ -3,6 +3,7 @@ import styled, {keyframes} from 'styled-components';
 import wave from '../assets/icons/wave.png';
 import deliveryIcon from '../assets/icons/deliveryIcon.png';
 import arrowBottom from '../assets/icons/arrowButtom.png';
+import banner from '../assets/img/bgBanner.svg';
 
 const traslateImg = keyframes`
     from{
@@ -46,7 +47,7 @@ const Wrapper = styled.div`
     min-height: 100vh;
     margin: 0 auto;
     background: #ffff;
-    background: url('../../public/bgBanner.svg') center/cover no-repeat;
+    background: url(${banner}) center/cover no-repeat;
 
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
