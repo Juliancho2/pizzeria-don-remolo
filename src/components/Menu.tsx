@@ -111,7 +111,7 @@ const Menu = () => {
 			<BtnLogin>
 				<Link to={'/login'}>
 					<svg width='26' height='26' viewBox='0 0 76 76' fill='none' xmlns='http://www.w3.org/2000/svg' className='SignInHeaderSection__StyledAccountNotSignedInIcon-sc-1mecrgs-1 cbBVIS'><g clipPath='url(#clip0_615_53684)'><path fillRule='evenodd' clipRule='evenodd' d='M0.5 38C0.5 58.7188 17.2812 75.5 38 75.5C58.7188 75.5 75.5 58.7188 75.5 38C75.5 17.2812 58.7188 0.5 38 0.5C17.2812 0.5 0.5 17.2812 0.5 38ZM5.85716 38C5.85716 20.2573 20.225 5.85716 37.9677 5.85716C55.7427 5.85716 70.1427 20.2573 70.1427 38C70.1427 55.7427 55.7427 70.1427 37.9677 70.1427C20.225 70.1427 5.85716 55.7427 5.85716 38Z' fill='#B5B6BD'></path><path d='M14.638 61.4375L9.875 59.2822C12.5834 52.9897 26.9403 47.375 37.9953 47.375C49.0756 47.375 63.4747 52.9986 66.125 59.3033L61.3442 61.4164C59.7411 57.6036 47.2189 52.7131 37.9953 52.7131C28.782 52.7131 16.2903 57.5984 14.638 61.4375Z' fill='#B5B6BD'></path><path fillRule='evenodd' clipRule='evenodd' d='M52.0625 28.625C52.0625 20.8302 45.7948 14.5625 38 14.5625C30.2052 14.5625 23.9375 20.8302 23.9375 28.625C23.9375 36.4198 30.2052 42.6875 38 42.6875C45.7948 42.6875 52.0625 36.4198 52.0625 28.625ZM28.625 28.625C28.625 23.4181 32.7931 19.25 38 19.25C43.2069 19.25 47.375 23.4181 47.375 28.625C47.375 33.8319 43.2069 38 38 38C32.7931 38 28.625 33.8319 28.625 28.625Z' fill='#B5B6BD'></path></g><defs><clipPath id='clip0_615_53684'><rect width='76' height='76' fill='white'></rect></clipPath></defs></svg>
-					<p>Login In</p>
+					<p>Inicio de sesion</p>
 				</Link>
 			</BtnLogin>
 			<MenuIcon onClick={handleMenu} className={`hamburger hamburger--collapse ${visible ? 'is-active' : ''}`}>
