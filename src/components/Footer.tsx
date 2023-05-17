@@ -4,7 +4,7 @@ import logo from '../assets/img/logo.png';
 
 // Estilos del footer
 const FooterWrapper = styled.footer`
-  background-color: #dcdcdc;
+  background-color: #231F20;
   padding: 30px;
   text-align: center;
   min-height: 40px;
