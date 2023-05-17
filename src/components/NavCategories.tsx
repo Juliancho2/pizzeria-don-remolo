@@ -82,7 +82,7 @@ const NavCategories = ({productsRef}: ChildComponentProps) => {
 				<button className={state?.state.category.name === 'bebida' ? 'linkActive' : ''} onClick={() => {
 					handleChangeCategory('bebida');
 				}} >Bebidas</button>
-				<button className={state?.state.category.name === 'postres' ? 'linkActive' : ''} onClick={() => {
+				<button className={state?.state.category.name === 'postre' ? 'linkActive' : ''} onClick={() => {
 					handleChangeCategory('postre');
 				}} >Postres</button>
 			</Wrapper>
