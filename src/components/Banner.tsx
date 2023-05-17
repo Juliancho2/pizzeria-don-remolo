@@ -157,7 +157,7 @@ const Banner = ({productsRef}: ChildComponentProps) => {
 				<Title>
 					<h3>Pizzeria Don  Remolo</h3>
 					<small>El sabor que te hace girar la cabeza: <br></br> ¡Bienvenidos a Don Remolo, la mejor pizzería de la ciudad!</small>
-					<Button onClick={scrollProducts}>Products <img src={arrowBottom} alt='' width={15}/></Button>
+					<Button onClick={scrollProducts}>Productos <img src={arrowBottom} alt='' width={15}/></Button>
 				</Title>
 				<ContainerImg>
 					<img src={deliveryIcon} alt='' />
