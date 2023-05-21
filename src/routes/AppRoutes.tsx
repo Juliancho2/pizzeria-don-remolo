@@ -48,6 +48,7 @@ const AppRoutes = () => {
 				<Route path={'/'} element={<HomePages />} />
 				<Route path={'/checkout'} element={<Checkout />} />
 				<Route path={'/login'} element={<LoginPage />} />
+				<Route path={'/menu'} element={<MenuPage />} />
 				<Route element={<ProtectRoutes isAllowed={localStorage.getItem('adminIsLogged') === 'true'} />} >
 					<Route path={'/dashboard'} element={<DashBoardPage><h2>Este es el home</h2></DashBoardPage>}/>
 					<Route path={'/dashboard/products'} element={<DashBoardPage> <Table></Table> </DashBoardPage>} />

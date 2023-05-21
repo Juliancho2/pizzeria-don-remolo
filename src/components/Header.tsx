@@ -46,9 +46,11 @@ const Header = () => (
 	<Container>
 		<Wrapper>
 			<MenuLeft>
+      <Link to={'/'}>
 				<img src={logo} height='77' width='77' alt='' />
+      </Link>
 				<div>
-					<Link to={'#'}>
+					<Link to={'menu'}>
           NAVEGAR POR EL MENU
 					</Link>
 					<Link to={'#'}>
