@@ -1,9 +1,9 @@
 import './globals.css'
 import { Lato } from 'next/font/google'
 
-const lato = Lato({ 
-  weight: ['400', '700', '900'], 
-  subsets: ['latin'] 
+const lato = Lato({
+  weight: ['400', '700', '900'],
+  subsets: ['latin']
 })
 
 export const metadata = {
@@ -11,12 +11,12 @@ export const metadata = {
 }
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" data-theme="dark">
+    <html lang="es" data-theme="light">
       <body className={lato.className}>{children}</body>
     </html>
   )

@@ -1,9 +1,13 @@
-import Image from 'next/image'
+import { Hero } from './componets/molecules/Hero'
+import { Header } from './componets/molecules/Header'
 
 export default function Home() {
   return (
-    <main>
-      
-    </main>
+    <>
+      <Header />
+      <main>
+        <Hero />
+      </main>
+    </>
   )
 }
