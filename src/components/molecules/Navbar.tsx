@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+
+import { Logo } from '../atomic/Logo'
 
 interface Route {
   url: string
@@ -20,17 +21,12 @@ const routes: Route[] = [
 
 export const Navbar: FC = () => {
   return (
-    <div className="navbar max-w-[1200px] mx-auto">
-      <div className="flex-1">
-        <Link href="/">
-          <Image src="/assets/img/logo.png" width={77} height={77} alt="Logo" />
-        </Link>
-      </div>
-      <nav className="flex-none">
+    <div className="navbar">
+      <nav>
         <ul className="menu menu-horizontal px-1">
           {routes.map(route => (
             <li key={route.url}>
-              <Link href={route.url} className="link-hover text-white">
+              <Link href={route.url} className="link-hover">
                 {route.label}
               </Link>
             </li>
