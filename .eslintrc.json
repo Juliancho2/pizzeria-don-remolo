@@ -1,34 +1,52 @@
 {
     "env": {
-        "browser": true,
-        "commonjs": true,
-        "es2021": true
+      "browser": true,
+      "es2021": true,
+      "node": true,
+      "jest": true
     },
     "extends": [
-        "plugin:react/recommended",
-        "xo"
+      "plugin:react/recommended",
+      "standard",
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
     ],
-    "overrides": [
-        {
-            "extends": [
-                "xo-typescript"
-            ],
-            "files": [
-                "*.ts",
-                "*.tsx"
-            ]
-        }
-    ],
-    "parserOptions": {
-        "ecmaVersion": "latest"
+    "settings": {
+      "react": { 
+        "version": "detect" 
+      },
+      "import/resolver": {
+        "typescript": {}
+      }
     },
-    "plugins": [
-        "react"
-    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": ["react", "@typescript-eslint", "prettier", "import"],
     "rules": {
-        "semi": ["error", "always"],
-        "quotes": ["error", "single"],
-        "indent": ["error", 2],
-        "no-unused-vars": "error"
+      "import/order": [ "error", {
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            ["index", "sibling"],
+            "object"
+          ],
+          "newlines-between": "always",
+          "alphabetize": { "order": "desc", "caseInsensitive": true }
+        }],
+      "prettier/prettier": "error",
+      "space-before-function-paren": "off",
+      "react/prop-types": "off",
+      "no-use-before-define": "off",
+      "@typescript-eslint/no-use-before-define": "off",
+      "react/react-in-jsx-scope": "off"
     }
-}
+  }
