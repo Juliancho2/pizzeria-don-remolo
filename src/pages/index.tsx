@@ -1,9 +1,15 @@
-const IndexPage = () => {
+import { Hero } from '../components/organisms/Hero'
+import { Header } from '../components/organisms/Header'
+import Footer from '../components/organisms/Footer'
+
+export default function Home() {
   return (
     <>
-      <h1>Página de inicio</h1>
+      <Header />
+      <main className="pt-20 sm:pt-0">
+        <Hero />
+      </main>
+      <Footer />
     </>
   )
 }
-
-export default IndexPage

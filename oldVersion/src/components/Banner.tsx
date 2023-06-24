@@ -36,7 +36,7 @@ const Container = styled.div`
     width: 100%;
     height: fit-content;
     overflow-x: hidden;
-    padding-top: 78px;
+    padding-top: 18px;
     `;
 const Wrapper = styled.div`
     display: grid;
@@ -68,13 +68,13 @@ const Title = styled.div`
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    margin: 80px auto;
+    margin: 20px auto;
     width: 80%;
     max-width: 650px;
     gap: 20px;
     z-index: 2;
     color: #5d5d5d;
-    padding-top: 80px;
+    padding-top: 60px;
     &>h3{
         text-align: start;
         width: 100%;
@@ -92,8 +92,10 @@ const Title = styled.div`
         text-align: start;
         animation: ${traslateLetters} .8s alternate;
     }
-    @media (max-width: 768px) {
-        margin-bottom: 20px;
+    @media (min-width: 768px) {
+        margin-bottom: 30px;
+        margin-top: 70px;
+        padding-top: 50px;
     }
     `;
 const Button = styled.button`
@@ -155,7 +157,7 @@ const Banner = ({productsRef}: ChildComponentProps) => {
 				<Title>
 					<h3>Pizzeria Don  Remolo</h3>
 					<small>El sabor que te hace girar la cabeza: <br></br> ¡Bienvenidos a Don Remolo, la mejor pizzería de la ciudad!</small>
-					<Button onClick={scrollProducts}>Products <img src={arrowBottom} alt='' width={15}/></Button>
+					<Button onClick={scrollProducts}>Productos <img src={arrowBottom} alt='' width={15}/></Button>
 				</Title>
 				<ContainerImg>
 					<img src={deliveryIcon} alt='' />

@@ -1,3 +1,4 @@
+import {json} from 'react-router-dom';
 import {type Item, type ItemWithAmount, type State} from '../type';
 import {useState} from 'react';
 
@@ -20,10 +21,20 @@ const useInitialState = () => {
 	const [state, setState] = useState<State>(initialState);
 
 	const getProducts = (payload: Item[]) => {
-		setState({
-			...state,
-			products: payload,
-		});
+		if (localStorage.getItem('cart')) {
+			const cartFromLocalStorage = localStorage.getItem('cart');
+
+			setState({
+				...state,
+				products: payload,
+				cart: JSON.parse(cartFromLocalStorage),
+			});
+		} else {
+			setState({
+				...state,
+				products: payload,
+			});
+		}
 	};
 
 	const changeAmount = (payload: ItemWithAmount, action: string) => {

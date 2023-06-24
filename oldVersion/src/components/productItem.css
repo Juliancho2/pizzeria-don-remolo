@@ -4,7 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  background: #f6f6f6;
+  /* background: #f6f6f6; */
 }
 
 .pizza-box {
@@ -109,7 +109,6 @@
 .recipe-save svg {
   margin-right: 6px;
 }
-
 
 
 

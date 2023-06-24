@@ -157,8 +157,8 @@ const Checkout = () => {
 					openFormOrder && <FormOrder setOpenOrden={setOpenFormOrder} openOrder={openFormOrder} />
 				}
 				<ContainerHead>
-					<h2>My orders</h2>
-					<p>Remove all items</p>
+					<h2>Mis productos</h2>
+					<p>Eliminar todos los productos</p>
 					<small>{state?.state.cart.length} Items</small>
 					<div >
 						<img onClick={handleRemoveAllItems} alt='' src={trash} />
@@ -178,7 +178,7 @@ const Checkout = () => {
 							<h5>Total:</h5><p>{amountCurrency(amounTotal)}</p>
 						</div>
 						<button onClick={handleFormOrder}>
-              Place order
+              Ordenar
 						</button>
 					</ContainerValue>
 				}

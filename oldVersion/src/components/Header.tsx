@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import logo from '../assets/img/logo.png';
 import Menu from './Menu';
+import {Link} from 'react-router-dom';
 
 const Container = styled.div`
   position: fixed;
@@ -21,17 +22,41 @@ const Wrapper = styled.div`
   transform: translateX(-50%);
   margin: 0 auto;
   width: 90%;
-
   
 `;
-
+const MenuLeft = styled.div`
+  display: flex;
+  gap: 30px;
+  &>div{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    &>a{
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: gray;
+      text-decoration: none;
+    }
+    @media (max-width:700px ) {
+      display: none;
+    }
+  }
+`;
 const Header = () => (
 	<Container>
 		<Wrapper>
-			<div>
+			<MenuLeft>
 				<img src={logo} height='77' width='77' alt='' />
-			</div>
-			<Menu/>
+				<div>
+					<Link to={'#'}>
+          NAVEGAR POR EL MENU
+					</Link>
+					<Link to={'#'}>
+          CONTACTANOS
+					</Link>
+				</div>
+			</MenuLeft>
+			<Menu />
 		</Wrapper>
 	</Container>
 );

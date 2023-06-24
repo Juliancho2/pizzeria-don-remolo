@@ -31,6 +31,8 @@ max-width:400px;
 min-width:340px;
 margin:0 auto;
 z-index: 60;
+padding: 20px 15px;
+
 @media (min-width:700px ) {
     left: initial;
         right: 5px;
@@ -41,20 +43,22 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     position: absolute;
-    overflow: auto;
+    overflow-y: overlay;
+    /* padding-right:10px; */
     right: 0;
     left: 0;
     top: 0;
     bottom: 0;
     background: #FFFFFF;
-    overflow-y: auto;
+    box-sizing: content-box;
     box-shadow: 0px 0px 4px rgba(99, 99, 99, 0.25);
     border-radius: 29px 29px 0px 0px;
     padding: 20px 15px;
     margin:0 auto;
-   
+    padding-top: 30px;
+    
     &>img{
-        position: sticky;
+        background: red;
         top: 5px;
         left: 50%;
         transform: translate(-50%);
@@ -67,6 +71,14 @@ const Wrapper = styled.div`
         font-size:2rem;
     }
     `;
+const WrapperArrow = styled.div`
+    position: sticky;
+    top: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 20;
+    left: 0;
+`;
 const ContainerValue = styled.div`
     display: flex;
     flex-direction: column;
@@ -126,7 +138,9 @@ const MyOrders = () => {
 	return (
 		<Container >
 			<Wrapper>
-				<img onClick={handleModalOrder} height={30} width={30} src={arrowDown} alt=''></img>
+				<WrapperArrow>
+					<img onClick={handleModalOrder} height={30} width={30} src={arrowDown} alt=''></img>
+				</WrapperArrow>
 				{
 					(state && state.state.cart.length === 0) ? <h2>Add products</h2>
 						: <>
@@ -141,7 +155,7 @@ const MyOrders = () => {
 								<div>
 									<h5>Total:</h5><p>{amountCurrency(amountTotal)}</p>
 								</div>
-								<Link to={'/checkout'}>Checkout</Link>
+								<Link to={'/checkout'}>Mis productos</Link>
 							</ContainerValue>
 
 						</>
