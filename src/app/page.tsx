@@ -1,14 +1,12 @@
 import { Hero } from '../components/organisms/Hero'
 import { Header } from '../components/organisms/Header'
-import { Button } from '../components/atomic/Button'
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main className="pt-20 sm:pt-0">
         <Hero />
-        <Button>Julian</Button>
       </main>
     </>
   )
