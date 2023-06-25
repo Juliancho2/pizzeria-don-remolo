@@ -21,5 +21,6 @@ export const LoginService = async <T, F>({
     data,
     ...options
   })
+
   return resp.data
 }

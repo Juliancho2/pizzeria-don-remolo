@@ -1,9 +1,13 @@
 import * as Yup from 'yup'
-import { Form, Formik } from 'formik'
+import { AiOutlineMail } from 'react-icons/ai'
+import { useRouter } from 'next/router'
+import { Form, Formik, FormikHelpers } from 'formik'
 
 import { mutation } from '@/src/utilities/react-query'
+import cookiesManager from '@/src/utilities/cookiesManager'
 import { LoginService } from '@/src/services/Auth/login'
 import { TextInput } from '@/src/components/atomic/TextInput'
+import PasswordInput from '@/src/components/atomic/PasswordInput'
 import { Logo } from '@/src/components/atomic/Logo'
 import { Button } from '@/src/components/atomic/Button'
 
@@ -11,28 +15,31 @@ const Validations = Yup.object({
   email: Yup.string().required('Este campo es requerido').email(),
   password: Yup.string().required('Este campo es requerido')
 })
-interface IData {
+
+interface InitialValues {
   email: string
   password: string
-  id: number
+}
+
+const initialValues: InitialValues = {
+  email: '',
+  password: ''
 }
 
 const SigninPage = () => {
-  const { mutate, data, error, isLoading } = mutation<
-    IData,
+  const router = useRouter()
+  const { mutateAsync, isLoading } = mutation<
     {
-      email: string
-      password: string
-    }
+      token: string
+    },
+    InitialValues
   >(
     {
-      url: 'https://jsonplaceholder.typicode.com/posts',
+      url: '/auth/signin',
       method: 'POST'
     },
     LoginService
   )
-
-  console.log({ data: data?.email, error, isLoading })
 
   return (
     <div className="h-screen w-[90%] mx-auto">
@@ -40,13 +47,17 @@ const SigninPage = () => {
         <div className="shadow-md rounded-sm w-[450px] h-fit flex flex-col p-10 items-center justify-between">
           <Logo widht={200} height={200} />
           <Formik
-            initialValues={{
-              email: '',
-              password: ''
-            }}
+            initialValues={initialValues}
             validationSchema={Validations}
-            onSubmit={(values: { email: string; password: string }) =>
-              mutate(values)
+            onSubmit={(
+              values: { email: string; password: string },
+              { resetForm }: FormikHelpers<InitialValues>
+            ) =>
+              mutateAsync(values).then(({ token }) => {
+                cookiesManager.saveInCookies('token', token)
+                router.push('/admin')
+                resetForm()
+              })
             }
           >
             <Form className="w-full">
@@ -54,9 +65,10 @@ const SigninPage = () => {
                 <TextInput
                   name="email"
                   type="email"
-                  label="Correo electrónico"
+                  label="Correo"
+                  icon={<AiOutlineMail color="gray" />}
                 />
-                <TextInput name="password" type="password" label="Contraseña" />
+                <PasswordInput name="password" label="Contraseña" />
                 <Button
                   styles={`btn ${isLoading && 'btn-disabled'} `}
                   type="submit"
