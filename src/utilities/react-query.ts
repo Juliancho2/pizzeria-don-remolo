@@ -1,4 +1,4 @@
-import { useMutation } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 import { AxiosRequestConfig, Method } from 'axios'
 
 interface Props {
@@ -7,31 +7,50 @@ interface Props {
   options?: AxiosRequestConfig
 }
 
-interface ServiceProps<F> extends Props {
+interface ServiceMutationProps<F> extends Props {
   data: F
 }
 
-interface ApiResponse<T> {
+interface QueryProps<F> extends Omit<Props, 'data' | 'method'> {
+  queryKey: string
+  params?: F
+}
+
+type ServiceQueryProps<F> = Omit<QueryProps<F>, 'queryKey'>
+
+export interface ApiResponse<T> {
   raw: T
 }
 
 export const mutation = <T, F>(
   { url, method, options }: Props,
-  service: ({
+  service: <T, F>({
     url,
     method,
     data,
     options
-  }: ServiceProps<F>) => Promise<ApiResponse<T>>
+  }: ServiceMutationProps<F>) => Promise<ApiResponse<T>>
 ) => {
-  return useMutation(async (data: F) => {
-    const resp = await service({
+  return useMutation((data: F) =>
+    service<T, F>({
       data,
       method,
       url,
       options
-    })
+    }).then(resp => resp.raw)
+  )
+}
 
+export const query = <T, F>(
+  { queryKey, url, params, options }: QueryProps<F>,
+  service: <T, F>({
+    url,
+    params,
+    options
+  }: ServiceQueryProps<F>) => Promise<ApiResponse<T>>
+) => {
+  return useQuery(queryKey, async () => {
+    const resp = await service<T, F>({ url, params, options })
     return resp.raw
   })
 }

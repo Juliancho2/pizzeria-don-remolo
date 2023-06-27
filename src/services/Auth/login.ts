@@ -9,6 +9,9 @@ interface Props<F> {
   options?: AxiosRequestConfig
 }
 
+// El pirmer valor es el valor a recibir como respuesta
+// El segundo valor son los datos a enviar en la request
+
 export const LoginService = async <T, F>({
   url,
   method,

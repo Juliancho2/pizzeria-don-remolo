@@ -1,5 +1,7 @@
 import { ButtonHTMLAttributes, FC, ReactNode } from 'react'
 
+import { Spinner } from './Spinner'
+
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
   styles: string
@@ -15,9 +17,8 @@ export const Button: FC<Props> = ({
   return (
     <>
       {isLoading ? (
-        <button className="btn" {...props}>
-          <span className="loading loading-spinner"></span>
-          loading
+        <button className={styles} {...props}>
+          <Spinner />
         </button>
       ) : (
         <button className={styles} {...props}>

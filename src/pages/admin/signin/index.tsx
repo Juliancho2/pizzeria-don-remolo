@@ -28,7 +28,7 @@ const initialValues: InitialValues = {
 
 const SigninPage = () => {
   const router = useRouter()
-  const { mutateAsync, isLoading } = mutation<
+  const { mutateAsync, isLoading, data } = mutation<
     {
       token: string
     },
