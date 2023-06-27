@@ -1,22 +1,17 @@
-import { FC } from 'react'
-import { Lato } from 'next/font/google'
+import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
+import { FC, useState } from 'react'
 import { AppProps } from 'next/app'
 import '../styles/globals.css'
 
-const lato = Lato({
-  weight: ['400', '700', '900'],
-  subsets: ['latin']
-})
-
-export const metadata = {
-  title: 'Pizzeria Don Remolo'
-}
-
 const App: FC<AppProps> = ({ Component, pageProps }) => {
+  const [queryClient] = useState(() => new QueryClient())
+
   return (
-    <>
-      <Component {...pageProps} />
-    </>
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <Component {...pageProps} />
+      </Hydrate>
+    </QueryClientProvider>
   )
 }
 
