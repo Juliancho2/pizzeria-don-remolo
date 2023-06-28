@@ -35,7 +35,7 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
 }
 
 const AdminPage: NextPage = () => {
-  const { data, isSuccess } = query<Order[], { limit: string; offset: string }>(
+  const { data } = query<Order[], { limit: string; offset: string }>(
     {
       queryKey: 'orders',
       url: '/orders',
@@ -47,9 +47,7 @@ const AdminPage: NextPage = () => {
   return (
     <>
       <h1 className="text-4xl font-bold">Admin Page</h1>
-      {isSuccess && (
-        <Table<Omit<Order, 'items'>> columns={columns} rows={data} />
-      )}
+      <Table<Omit<Order, 'items'>> columns={columns} rows={data as Order[]} />
     </>
   )
 }
