@@ -14,10 +14,6 @@ const routes: Route[] = [
   {
     url: '/',
     label: 'Contactanos'
-  },
-  {
-    url: '/#',
-    label: 'Login'
   }
 ]
 
