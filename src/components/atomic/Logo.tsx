@@ -1,9 +1,20 @@
+import { FC } from 'react'
 import Image from 'next/image'
 
-export const Logo = () => {
+interface Props {
+  widht: number
+  height: number
+}
+
+export const Logo: FC<Props> = ({ widht = 77, height = 77 }) => {
   return (
     <div>
-      <Image src="/assets/img/logo.png" width={77} height={77} alt="Logo" />
+      <Image
+        src="/assets/img/logo.png"
+        width={widht}
+        height={height}
+        alt="Logo"
+      />
     </div>
   )
 }
