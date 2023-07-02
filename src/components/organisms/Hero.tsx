@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from 'next/image'
 
 import { Button } from '../atomic/Button'
@@ -14,7 +15,9 @@ export const Hero = () => {
             El sabor que te hace girar la cabeza: <br></br> ¡Bienvenidos a Don
             Remolo, la mejor pizzería de la ciudad!
           </p>
-          <Button styles="btn btn-neutral">Menu</Button>
+          <Link href={'/menu'}>
+            <Button styles="btn btn-neutral">Menu</Button>
+          </Link>
         </div>
         <div>
           <Image

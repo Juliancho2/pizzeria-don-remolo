@@ -29,7 +29,7 @@ const Carousel = () => {
   }
 
   return (
-    <div className="w-full overflow-hidden flex items-center gap-5 ">
+    <div className="w-full px-2 overflow-hidden flex items-center gap-5 ">
       <div onClick={scrollLeft}>
         <svg
           width="19"
@@ -49,12 +49,12 @@ const Carousel = () => {
       </div>
       <div
         id="carousel"
-        className="carousel flex overflow-x-scroll rounded-box py-5 w-full"
+        className="carousel px-2 flex gap-5 overflow-x-scroll rounded-box py-5 w-full"
       >
         {products &&
           products
             .filter((item: ProductInterface) => item.category.name === 'pizza')
-            .slice(0, 5)
+            .slice(0, 4)
             .map((item: ProductInterface) => (
               <CardProduct dataProduct={item} key={item.id} />
             ))}
