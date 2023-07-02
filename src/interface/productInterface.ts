@@ -1,3 +1,7 @@
+export interface Categories {
+  label: string
+  icon: string
+}
 export interface categoryInterface {
   name: string
 }
