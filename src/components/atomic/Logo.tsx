@@ -2,8 +2,8 @@ import { FC } from 'react'
 import Image from 'next/image'
 
 interface Props {
-  widht: number
-  height: number
+  widht?: number
+  height?: number
 }
 
 export const Logo: FC<Props> = ({ widht = 77, height = 77 }) => {
